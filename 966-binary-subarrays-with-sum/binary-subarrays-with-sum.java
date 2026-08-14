@@ -4,22 +4,17 @@ class Solution {
     }
 
     private int atmost(int[] nums, int k){
-        int left =0;
         int sum = 0;
-        int count = 0;
-        
         if(k<0) return 0;
-
-        for(int right=0;right<nums.length;right++){
-            sum+= nums[right];
-
-            while(sum>k){
-                sum-= nums[left];
-                left++;
-
-            }
-            count+= right-left+1;
+       int left = 0 , count = 0;
+       for(int right=0;right<nums.length;right++){
+        sum+= nums[right];
+        while(sum>k){
+            sum-= nums[left];
+            left++;
         }
-           return count;
+        count+= right-left+1;
+       }
+       return count;
     }
 }
